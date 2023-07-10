@@ -1,4 +1,4 @@
-# <a href="https://weather.aniqa.dev" target="_blank">Weather Dashboard</a>
+# <a href="https://weather.aniqa.dev" target="_blank">Weather Dashboard</a> - IT NOW USE OPEN-METO, NO KEY REQUIRE !
 The Weather Dashboard provides an overview of weather conditions in the specified city with an option to toggle all temperature units to Celsius and back to Fahrenheit. Sidebar provides access to random major cities and their current weather.
 
 <img src="https://user-images.githubusercontent.com/25181517/189715289-df3ee512-6eca-463f-a0f4-c10d94a06b2f.png" width="20px">  <img src="https://user-images.githubusercontent.com/25181517/192158954-f88b5814-d510-4564-b285-dff7d6400dad.png" width="20px"> <img src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" width="20px">  <img src="https://user-images.githubusercontent.com/25181517/183898054-b3d693d4-dafb-4808-a509-bab54cf5de34.png" width="20px"> <img src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" width="20px">

@@ -345,3 +345,7 @@ button i {
 		display: unset;
 	}
 }
+
+canvas{
+    margin: 0 auto;
+}

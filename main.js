@@ -276,9 +276,9 @@ function displayCurrentTemperature(response) {
 		// Local Storage
 		localStorage.setItem('location', `${data.name}`);
 		
-		//TEST
+		//Update charts
 		const time_list=data.hourly.time.slice(hournb,hournb+24);
-		const hours = time_list.map(hours => new Date(hours).getHours() + "h")
+		const hours = time_list.map(hours => new Date(hours).getHours() + "h");
 		
 		mychart.data.labels = hours;
 		mychart.data.datasets[0].data = data.hourly.temperature_2m.slice(hournb,hournb+24);
@@ -293,9 +293,9 @@ function displayForecast(response) {
 	const forecastData = response.data.daily;
 	const forecastContainer = document.querySelector('.full-forecast');
 	var forecastHTML = '';
-	
+	let gzeytfg;
 	for (let i = 1; i < 5; i++){
-		forecastHTML += `<div class="daily m-2 m-md-0">
+		forecastHTML += `<button class="btn daily m-2 m-md-0" id="forecastbtn_${i}">
 							<p>${formatDay(i)}</p>
 							<img
 								src="assets/loading.svg"
@@ -322,7 +322,7 @@ function displayForecast(response) {
 									${Math.round(forecastData.precipitation_sum[i])} mm
 								</span>
 							</p>
-						</div>
+						</button>
 						`;
 		//Change Icons
 		let code = forecastData.weathercode[i];
@@ -333,6 +333,10 @@ function displayForecast(response) {
 							`src="${desc.data[code].day.image}"`
 							);
 			forecastContainer.innerHTML = forecastHTML;
+			document.querySelector('#forecastbtn_'+1).addEventListener('click', CreateEventButton.bind(this, response, 1), false);
+			document.querySelector('#forecastbtn_'+2).addEventListener('click', CreateEventButton.bind(this, response, 2), false);
+			document.querySelector('#forecastbtn_'+3).addEventListener('click', CreateEventButton.bind(this, response, 3), false);
+			document.querySelector('#forecastbtn_'+4).addEventListener('click', CreateEventButton.bind(this, response, 4), false);
 		});
 		//console.log(forecastHTML);
 		
@@ -348,4 +352,13 @@ function formatDay(dayct) {
 	const day = date.getDay();
 	const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
 	return days[day];
+}
+
+function CreateEventButton(response,i) {
+	var time_listi = [...Array(24).keys()];
+	var hoursi = time_listi.map(hoursi => hoursi + "h");
+	mychart.data.labels = hoursi;
+	mychart.data.datasets[0].data = response.data.hourly.temperature_2m.slice(24*i,(24*i)+24);
+	mychart.data.datasets[1].data = response.data.hourly.precipitation.slice(24*i,(24*i)+24);
+	mychart.update();
 }

@@ -96,14 +96,15 @@
 					</div>
 					<div class="container flex-md-row flex-column">
 						<div class="row">
-							<section class="temp-overview col-lg-5">
-								<div class="current-weather card">
+							<section class="temp-overview col-lg-5 d-flex">
+								<div class="current-weather card w-100">
 									<div class="card-body">
 										<div class="d-flex">
 											<h1 class="flex-grow-1">
 												<span id="temp-now"></span>°<span class="fahrenheit"
 													>C
 												</span>
+												<small><span id="indoor-temp"> </span>°C</small>
 												<a href="#" class="celsius"></a></span
 												>
 											</h1>
@@ -123,7 +124,7 @@
 												>
 											</h3>
 										</div>
-										<br /><br />
+										<br /><br /><br />
 										<div class="d-flex">
 											<div class="flex-grow-1">
 												<p>
@@ -185,15 +186,21 @@
 											<span id="clouds"></span>%
 											<i class="fa-solid fa-cloud align-self-center"></i>
 										</li>
+										
+										<li class="list-group-item d-flex">
+											<strong class="flex-grow-1"> Puissance panneaux </strong>
+											<span id="solar">0</span>W
+											<i class="fa-solid fa-solar-panel align-self-center"></i>
+										</li>
 									</ul>
 								</div>
 							</section>
 							<div class="w-100 d-md-none d-block"></div>
-							<section class="sun-time col-md mt-3 mt-md-2 mt-lg-0">
+							<section class="sun-time col-md mt-3 mt-md-2 mt-lg-0 d-flex">
 								<div class="card">
 									<img
 										src="assets/day-landscape.png"
-										class="card-img w-100"
+										class="card-img w-100 h-100"
 										id="scenery"
 									/>
 									<div class="card-img-overlay text-center">

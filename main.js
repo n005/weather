@@ -128,6 +128,7 @@ celsius.addEventListener('click', toggleTemp);
 
 // Variables for Elements Representing Data
 const currentTemp = document.querySelector('#temp-now');
+const indoortemp = document.querySelector('#indoor-temp');
 const highTemp = document.querySelector('#high-temp');
 const lowTemp = document.querySelector('#low-temp');
 const feelsLikeTemp = document.querySelector('#feels-like');
@@ -136,6 +137,7 @@ const wind = document.querySelector('#wind');
 const humidity = document.querySelector('#humidity');
 const visibility = document.querySelector('#visibility');
 const clouds = document.querySelector('#clouds');
+const solar = document.querySelector('#solar');
 const sunrise = document.querySelector('#sunrise-time');
 const sunset = document.querySelector('#sunset-time');
 const scenery = document.querySelector('#scenery');
@@ -235,7 +237,13 @@ function displayCurrentTemperature(response) {
 		clouds.innerHTML = `${data.hourly.cloudcover[hournb]}`;
 		const dewPoint = document.querySelector('#dew-point');
 		dewPoint.innerHTML = `${Math.round(response.data.hourly.dewpoint_2m[hournb])}`;
-
+		
+		// Get solar panel informations and temp sensors
+		axios.get('http://192.168.1.37:8000/api').then(solarpw => {
+			solar.innerHTML = `${Math.round(solarpw.data.power)}`;
+			indoortemp.innerHTML = `${Math.round(solarpw.data.indoor)}`;
+		});
+		
 		// Weather Condition Message Indicator
 		function weathercdtupdate(desc){
 		const weatherType = desc.data[code].day.description;
